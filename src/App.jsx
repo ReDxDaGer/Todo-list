@@ -45,12 +45,16 @@ const App = () => {
   }
   return (
     <>
-      <Flex w='100%' h='100vh'>
+      <Flex w='100%' h='100vh'
+      bg={'gray.700'}
+      >
         <Flex w='100%' 
         flexDir='column' 
         ml='20%' mt='5%' mr='20%'>
           <Text fontWeight='700' 
-          fontSize={30}>Tasks
+          fontSize={30}
+          color={'white'}
+          >Tasks
           </Text>
          
           <form onSubmit={addTask}>
@@ -61,27 +65,30 @@ const App = () => {
                variant='flushed' 
                placeholder='Add task you want To-Do' 
                w='50%' 
-               _placeholder={{color:'black'}}
-               borderBottom={'2px solid gray'}
+               _placeholder={{color:'white'}}
+               borderBottom={'2px solid #FFDEAD'}
                />
-              <Button onClick={addTask} ml={5} bg='blue.400'>Add Task</Button>
+              <Button onClick={addTask} 
+              ml={5} 
+              bg='blue.400'
+              color={'white'}>Add Task</Button>
             </Flex>
           </form>
          
           <Tabs mt='2%' w='100%'>
          
-            <TabList>
-              <Tab>Incomplete Tasks</Tab>
-              <Tab>Completed Tasks</Tab>
+            <TabList justifyContent={'space-between'} color={'white'}>
+              <Tab>Incomplete Tasks ➡️</Tab>
+              <Tab>⬅️ Completed Tasks</Tab>
             </TabList>
          
             <TabPanels>
-              <TabPanel>
+              <TabPanel color={'white'}>
                 {tasks.map((task, index) => (
                   !task.isChecked ? <TaskItem removeTask={removeTask} udpateTask={udpateTask} key={index} task={task} index={index} /> : null
                 ))}
               </TabPanel>
-              <TabPanel>
+              <TabPanel color={'white'}>
                 {tasks.map((task, index) => (
                   task.isChecked ? <TaskItem removeTask={removeTask} udpateTask={udpateTask} key={index} task={task} index={index} /> : null
                 ))}
